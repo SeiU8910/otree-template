@@ -13,11 +13,11 @@ class C(BaseConstants):
     
     # ゲーム設定
     CONTRIBUTION_COST = 1
-    PUBLIC_GOOD_MULTIPLIER = 2
-    PUNISHMENT_COST = 1
-    PUNISHMENT_EFFECT = 3
-    META_PUNISHMENT_COST = 1
-    META_PUNISHMENT_EFFECT = 3
+    PUBLIC_GOOD_MULTIPLIER = 3
+    PUNISHMENT_COST = 2
+    PUNISHMENT_EFFECT = 5
+    META_PUNISHMENT_COST = 2
+    META_PUNISHMENT_EFFECT = 5
     
     # 一般的信頼測定
     TRUST_SCALE = [
@@ -37,7 +37,7 @@ class Subsession(BaseSubsession):
             random.shuffle(participant_ids)
             for i, player in enumerate(self.get_players()):
                 player.participant.vars['random_id'] = participant_ids[i]
-                player.participant.vars['initial_points'] = 0
+                player.participant.vars['initial_points'] = 10
             # Round1 の信頼測定後にグループ分けを行うため、ここでは予備設定のみ
         else:
             # ラウンド2以降は Round1 と同じグループを維持
