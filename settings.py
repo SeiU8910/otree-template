@@ -18,6 +18,13 @@ SESSION_CONFIGS = [
         num_demo_participants=3,
         players_per_group=3,
     ),
+    dict(
+        name='public_goods_punishment',
+        display_name='Choi ver.1',
+        app_sequence=['public_goods_punishment'],
+        num_demo_participants=12,
+        players_per_group=6,
+    ),
 ]
 
 

@@ -1,0 +1,59 @@
+{{ block title }}懲罰決定{{ endblock }}
+
+{{ block content }}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">懲罰決定</h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning">
+                        <h5><i class="fas fa-exclamation-triangle"></i> 貢献しなかったメンバーがいます</h5>
+                        <p>以下のメンバーは公共財への貢献を行いませんでした。懲罰するかどうかを決定してください。</p>
+                    </div>
+                    
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">懲罰のルール</h5>
+                            <ul>
+                                <li><strong>懲罰コスト:</strong> 1人を懲罰するごとに1点のコストがかかります</li>
+                                <li><strong>懲罰効果:</strong> 懲罰された相手は3点を失います</li>
+                                <li><strong>匿名性:</strong> 誰が誰を懲罰したかは公開されません</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">懲罰対象</h5>
+                            {{ for defector in defectors }}
+                            <div class="form-group border p-3 mb-3">
+                                <h6>{{ defector.name }}（貢献しなかった）</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="{{ defector.field_name }}" id="{{ defector.field_name }}_yes" value="True">
+                                    <label class="form-check-label" for="{{ defector.field_name }}_yes">
+                                        懲罰する（自分が1点失い、相手が3点失う）
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="{{ defector.field_name }}" id="{{ defector.field_name }}_no" value="False" checked>
+                                    <label class="form-check-label" for="{{ defector.field_name }}_no">
+                                        懲罰しない
+                                    </label>
+                                </div>
+                            </div>
+                            {{ endfor }}
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        {{ next_button class="btn btn-primary btn-lg btn-block" text="決定" }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ endblock }}

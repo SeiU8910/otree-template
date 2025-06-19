@@ -1,0 +1,56 @@
+{{ block title }}公共財への貢献決定{{ endblock }}
+
+{{ block content }}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">公共財への貢献 - ラウンド {{ round_number }}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <h5><i class="fas fa-info-circle"></i> あなたの情報</h5>
+                        <p><strong>現在のポイント:</strong> {{ current_points }}点</p>
+                    </div>
+                    
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">ゲームのルール</h5>
+                            <ul>
+                                <li><strong>貢献する場合:</strong> 1点のコストがかかります</li>
+                                <li><strong>公共の利益:</strong> 貢献した人数 × 2点が6人全員で分け合われます</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">あなたの決定</h5>
+                            {{ formfields }}
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        {{ next_button class="btn btn-primary btn-lg btn-block" text="決定" }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.form-check {
+    margin-bottom: 1rem;
+}
+
+.form-check-input {
+    margin-right: 0.5rem;
+}
+
+.form-check-label {
+    font-size: 1.1em;
+}
+</style>
+{{ endblock }}

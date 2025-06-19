@@ -1,0 +1,40 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% block title %}
+  結果
+{% endblock %}
+{% block content %}
+  <h2>ラウンド {{ round_number }} の結果</h2>
+  <p>プレイヤーID: {{ player_id }}</p>
+  <p>グループの総貢献数: {{ total_contribution }}</p>
+  <p>公共プールの合計: {{ public_pool }}</p>
+
+    <table>
+    <thead>
+      <tr>
+        <th>プレイヤー</th>
+        <th>貢献</th>
+        <th>懲罰</th>
+        <th>メタ懲罰</th>
+        <th>今回の報酬</th>
+        <th>累積報酬</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for result in group_results %}
+      <tr>
+        <td>{{ result.name }}</td>
+        <td>{{ result.contributed }}</td>
+        <td>{{ result.punishment }}</td>
+        <td>{{ result.meta_punishment }}</td>
+        <td>{{ result.round_payoff }}</td>
+        <td>{{ result.total_payoff }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+    {% block formfields %}
+  {% endblock %}
+{% endblock %}
+
